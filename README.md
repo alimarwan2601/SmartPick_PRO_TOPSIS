@@ -1,13 +1,4 @@
 # SmartPick PRO — TOPSIS Smartphone Recommendation
-Prototype UTS Pengantar Kecerdasan Buatan.
-
-## Jalankan
-1. Extract ZIP.
-2. Buka folder di VS Code.
-3. Buka `index.html` atau gunakan Live Server.
-4. Scroll ke "Atur prioritasmu".
-5. Geser nilai 1–4.
-6. Klik "Hitung Rekomendasi".
 
 ## Fitur
 - Landing page
