@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartPick — Rekomendasi Smartphone Mahasiswa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast"></div>
+<header class="navbar">
+  <a class="logo" href="#home"><span class="logo-mark">S</span> SmartPick</a>
+  <nav>
+    <a href="#home">Home</a><a href="#smartphones">Smartphone</a><a href="#recommendation">Rekomendasi</a><a href="#method">TOPSIS</a>
+  </nav>
+  <a class="nav-cta" href="#recommendation">Mulai Rekomendasi →</a>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <div class="pill">✦ AI DECISION SUPPORT SYSTEM</div>
+    <h1>Pilih smartphone<br><em>sesuai prioritasmu.</em></h1>
+    <p>SmartPick membantu mahasiswa menemukan smartphone yang paling sesuai berdasarkan harga, RAM, storage, performa, kamera, dan baterai menggunakan metode TOPSIS.</p>
+    <div class="hero-actions"><a class="btn primary" href="#recommendation">Cari Rekomendasi <span>↗</span></a><a class="btn ghost" href="#method">Pelajari TOPSIS</a></div>
+    <div class="mini-stats"><div><b>15</b><span>Smartphone</span></div><div><b>6</b><span>Kriteria</span></div><div><b>TOPSIS</b><span>Metode</span></div></div>
+  </div>
+  <div class="hero-visual">
+    <div class="orb orb1"></div><div class="orb orb2"></div>
+    <div class="phone-card">
+      <div class="phone-top"><span>SMARTPICK</span><span>RECOMMENDED</span></div>
+      <div class="phone-screen"><div class="phone-camera"></div><div class="phone-brand">POCO</div><div class="phone-model">F7</div><div class="phone-score">0.599893 <small>TOPSIS SCORE</small></div></div>
+      <div class="phone-bottom"><span>12 GB + 512 GB</span><span>6.500 mAh</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="smartphones" class="section">
+  <div class="section-title"><div><div class="eyebrow">01 / SMARTPHONES</div><h2>15 pilihan untuk dibandingkan.</h2></div><div class="filter"><input id="search" placeholder="Cari smartphone..."> <select id="brandFilter"><option value="">Semua brand</option></select></div></div>
+  <div id="phoneGrid" class="phone-grid"></div>
+</section>
+
+<section id="recommendation" class="section dark-section">
+  <div class="section-title"><div><div class="eyebrow">02 / PREFERENSI</div><h2>Atur prioritasmu.</h2><p>Semakin tinggi nilai, semakin penting kriterianya bagi kamu.</p></div><div class="weight-box"><b id="weightTotal">100%</b><span>Total bobot</span></div></div>
+  <div class="preference-layout">
+    <div class="preference-card" id="criteriaGrid"></div>
+    <aside class="how-card"><div class="number">01</div><h3>Atur prioritas</h3><p>Pilih tingkat kepentingan 1–4 untuk setiap kriteria.</p><div class="number">02</div><h3>TOPSIS menghitung</h3><p>Nilai dinormalisasi, diberi bobot, lalu dibandingkan dengan solusi ideal.</p><div class="number">03</div><h3>Lihat hasil</h3><p>Smartphone dengan nilai V tertinggi menjadi rekomendasi utama.</p><button class="btn primary full" id="calculate">Hitung Rekomendasi →</button></aside>
+  </div>
+</section>
+
+<section id="results" class="section results-section">
+  <div class="section-title"><div><div class="eyebrow">03 / RESULT</div><h2>Hasil rekomendasi.</h2><p>Ranking dihitung secara dinamis berdasarkan preferensi yang kamu pilih.</p></div></div>
+  <div id="winner" class="winner"></div>
+  <div class="table-wrap"><table><thead><tr><th>#</th><th>Smartphone</th><th>Harga</th><th>RAM</th><th>Storage</th><th>AnTuTu 11</th><th>V</th></tr></thead><tbody id="rankingBody"></tbody></table></div>
+</section>
+
+<section id="method" class="section method-section">
+  <div class="section-title"><div><div class="eyebrow">04 / METODE</div><h2>Bagaimana SmartPick bekerja?</h2></div></div>
+  <div class="steps"><div class="step"><span>01</span><h3>Bobot</h3><p>Preferensi pengguna 1–4 dikonversi menjadi bobot dengan rumus nilai dibagi total nilai.</p></div><div class="step"><span>02</span><h3>Normalisasi</h3><p>Nilai tiap kriteria dinormalisasi agar data dengan satuan berbeda dapat dibandingkan.</p></div><div class="step"><span>03</span><h3>Solusi Ideal</h3><p>Sistem menentukan solusi ideal positif dan negatif berdasarkan tipe benefit/cost.</p></div><div class="step"><span>04</span><h3>Ranking</h3><p>Nilai V dihitung. Semakin tinggi V, semakin tinggi peringkat alternatif.</p></div></div>
+  <div class="formula">V<sub>i</sub> = D<sub>i</sub><sup>−</sup> / (D<sub>i</sub><sup>−</sup> + D<sub>i</sub><sup>+</sup>)</div>
+</section>
+</main>
+<footer><div class="logo"><span class="logo-mark">S</span> SmartPick</div><span>Sistem Rekomendasi Smartphone untuk Mahasiswa · TOPSIS · 2026</span></footer>
+<script src="app.js"></script>
+</body>
+</html>
