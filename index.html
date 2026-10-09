@@ -1,66 +1,208 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartPick — Rekomendasi Smartphone Mahasiswa</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartPick — Rekomendasi Smartphone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="toast"></div>
-<header class="navbar">
-  <a class="logo" href="#home"><span class="logo-mark">S</span> SmartPick</a>
-  <nav>
-    <a href="#home">Home</a><a href="#smartphones">Smartphone</a><a href="#recommendation">Rekomendasi</a><a href="#method">TOPSIS</a>
-  </nav>
-  <a class="nav-cta" href="#recommendation">Mulai Rekomendasi →</a>
-</header>
-
-<main>
-<section id="home" class="hero">
-  <div class="hero-copy">
-    <div class="pill">✦ AI DECISION SUPPORT SYSTEM</div>
-    <h1>Pilih smartphone<br><em>sesuai prioritasmu.</em></h1>
-    <p>SmartPick membantu mahasiswa menemukan smartphone yang paling sesuai berdasarkan harga, RAM, storage, performa, kamera, dan baterai menggunakan metode TOPSIS.</p>
-    <div class="hero-actions"><a class="btn primary" href="#recommendation">Cari Rekomendasi <span>↗</span></a><a class="btn ghost" href="#method">Pelajari TOPSIS</a></div>
-    <div class="mini-stats"><div><b>15</b><span>Smartphone</span></div><div><b>6</b><span>Kriteria</span></div><div><b>TOPSIS</b><span>Metode</span></div></div>
-  </div>
-  <div class="hero-visual">
-    <div class="orb orb1"></div><div class="orb orb2"></div>
-    <div class="phone-card">
-      <div class="phone-top"><span>SMARTPICK</span><span>RECOMMENDED</span></div>
-      <div class="phone-screen"><div class="phone-camera"></div><div class="phone-brand">POCO</div><div class="phone-model">F7</div><div class="phone-score">0.599893 <small>TOPSIS SCORE</small></div></div>
-      <div class="phone-bottom"><span>12 GB + 512 GB</span><span>6.500 mAh</span></div>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark">S</span>
+        <span>SmartPick</span>
+      </a>
+      <span class="method">TOPSIS Recommendation System</span>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="smartphones" class="section">
-  <div class="section-title"><div><div class="eyebrow">01 / SMARTPHONES</div><h2>15 pilihan untuk dibandingkan.</h2></div><div class="filter"><input id="search" placeholder="Cari smartphone..."> <select id="brandFilter"><option value="">Semua brand</option></select></div></div>
-  <div id="phoneGrid" class="phone-grid"></div>
-</section>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-kicker"><span class="live-dot"></span> SMARTPHONE FINDER <span class="hero-version">v1.2</span></div>
+        <h1>Find your next<br><em>daily driver.</em></h1>
+        <p>Pilihan smartphone yang lebih masuk akal. Atur budget, pilih merek, dan biarkan SmartPick membandingkan spesifikasi berdasarkan kebutuhanmu.</p>
+        <a class="hero-link" href="#finder">Mulai cari <span>↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi smartphone">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="phone phone-back"><div class="camera camera-a"></div><div class="camera camera-b"></div><div class="camera camera-c"></div></div>
+        <div class="phone phone-front"><div class="phone-island"></div><div class="screen-glow"></div><div class="screen-copy"><span>SMARTPICK</span><strong>Better<br>choices.</strong><small>COMPARE · DECIDE</small></div></div>
+        <div class="art-chip chip-top">5 criteria</div><div class="art-chip chip-bottom">TOPSIS engine <span>↗</span></div>
+      </div>
+    </section>
+    <section class="quick-stats">
+      <div><strong>30</strong><span>smartphone pilihan</span></div>
+      <div><strong>09</strong><span>merek tersedia</span></div>
+      <div><strong>05</strong><span>kriteria perbandingan</span></div>
+      <div><strong>1.024</strong><span>kombinasi uji bobot</span></div>
+    </section>
 
-<section id="recommendation" class="section dark-section">
-  <div class="section-title"><div><div class="eyebrow">02 / PREFERENSI</div><h2>Atur prioritasmu.</h2><p>Semakin tinggi nilai, semakin penting kriterianya bagi kamu.</p></div><div class="weight-box"><b id="weightTotal">100%</b><span>Total bobot</span></div></div>
-  <div class="preference-layout">
-    <div class="preference-card" id="criteriaGrid"></div>
-    <aside class="how-card"><div class="number">01</div><h3>Atur prioritas</h3><p>Pilih tingkat kepentingan 1–4 untuk setiap kriteria.</p><div class="number">02</div><h3>TOPSIS menghitung</h3><p>Nilai dinormalisasi, diberi bobot, lalu dibandingkan dengan solusi ideal.</p><div class="number">03</div><h3>Lihat hasil</h3><p>Smartphone dengan nilai V tertinggi menjadi rekomendasi utama.</p><button class="btn primary full" id="calculate">Hitung Rekomendasi →</button></aside>
-  </div>
-</section>
+    <section class="panel preference-panel" id="finder">
+      <div class="panel-head">
+        <div>
+          <h2>Build your shortlist<span class="section-index">01 / FILTER</span></h2>
+          <p>Mulai dari pilihan yang kamu inginkan, lalu atur prioritas sebelum menghitung rekomendasi.</p>
+        </div>
+        <div class="scale">
+          <span>1</span><span>2</span><span>3</span><span>4</span>
+        </div>
+      </div>
 
-<section id="results" class="section results-section">
-  <div class="section-title"><div><div class="eyebrow">03 / RESULT</div><h2>Hasil rekomendasi.</h2><p>Ranking dihitung secara dinamis berdasarkan preferensi yang kamu pilih.</p></div></div>
-  <div id="winner" class="winner"></div>
-  <div class="table-wrap"><table><thead><tr><th>#</th><th>Smartphone</th><th>Harga</th><th>RAM</th><th>Storage</th><th>AnTuTu 11</th><th>V</th></tr></thead><tbody id="rankingBody"></tbody></table></div>
-</section>
+      <div class="filter-row">
+        <div class="budget-field">
+          <label for="brandFilter">Merek smartphone</label>
+          <select id="brandFilter" class="brand-select">
+            <option value="all">Semua merek</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Xiaomi">Xiaomi</option>
+            <option value="Redmi">Redmi</option>
+            <option value="POCO">POCO</option>
+            <option value="Infinix">Infinix</option>
+            <option value="TECNO">TECNO</option>
+            <option value="iQOO">iQOO</option>
+            <option value="realme">realme</option>
+            <option value="Motorola">Motorola</option>
+          </select>
+          <small>Pilih satu merek atau bandingkan semua merek.</small>
+        </div>
+        <div class="budget-field">
+          <label for="budget">Budget maksimum</label>
+        <div class="money-input">
+          <span>Rp</span>
+          <input id="budget" type="number" min="1000000" max="10000000" step="100000" value="5000000" required>
+        </div>
+          <small>Minimum Rp1.000.000. Kandidat yang diproses harus berada di bawah atau sama dengan budget maksimum.</small>
+        </div>
+      </div>
 
-<section id="method" class="section method-section">
-  <div class="section-title"><div><div class="eyebrow">04 / METODE</div><h2>Bagaimana SmartPick bekerja?</h2></div></div>
-  <div class="steps"><div class="step"><span>01</span><h3>Bobot</h3><p>Preferensi pengguna 1–4 dikonversi menjadi bobot dengan rumus nilai dibagi total nilai.</p></div><div class="step"><span>02</span><h3>Normalisasi</h3><p>Nilai tiap kriteria dinormalisasi agar data dengan satuan berbeda dapat dibandingkan.</p></div><div class="step"><span>03</span><h3>Solusi Ideal</h3><p>Sistem menentukan solusi ideal positif dan negatif berdasarkan tipe benefit/cost.</p></div><div class="step"><span>04</span><h3>Ranking</h3><p>Nilai V dihitung. Semakin tinggi V, semakin tinggi peringkat alternatif.</p></div></div>
-  <div class="formula">V<sub>i</sub> = D<sub>i</sub><sup>−</sup> / (D<sub>i</sub><sup>−</sup> + D<sub>i</sub><sup>+</sup>)</div>
-</section>
-</main>
-<footer><div class="logo"><span class="logo-mark">S</span> SmartPick</div><span>Sistem Rekomendasi Smartphone untuk Mahasiswa · TOPSIS · 2026</span></footer>
-<script src="app.js"></script>
+      <div class="criteria-grid" id="criteriaGrid"></div>
+
+      <div class="panel-actions">
+        <button class="btn-primary" id="recommendBtn">Hitung rekomendasi <span>↗</span></button>
+        <button class="btn-ghost" id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <section class="results hidden" id="results">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">YOUR MATCH</p>
+          <h2>Hasil yang paling mendekati kebutuhanmu</h2>
+        </div>
+        <button class="btn-ghost small" id="changeBtn">Ubah preferensi</button>
+      </div>
+
+      <div class="active-filters" id="activeFilters"></div>
+      <div class="recommendation-card">
+        <div class="recommendation-main">
+          <div class="rank-label">REKOMENDASI UTAMA <span>01</span></div>
+          <h3 id="winnerName">—</h3>
+          <p class="winner-price" id="winnerPrice">—</p>
+          <div class="winner-meta" id="winnerMeta"></div>
+        </div>
+        <div class="score-block">
+          <span>Nilai TOPSIS</span>
+          <strong id="winnerScore">0.0000</strong>
+          <small id="candidateCount">— kandidat</small>
+        </div>
+      </div>
+
+      <div class="reason-card">
+        <div class="reason-icon">i</div>
+        <div>
+          <strong>Kenapa smartphone ini?</strong>
+          <p id="winnerExplanation">—</p>
+        </div>
+      </div>
+
+      <div class="section-title ranking-title">
+        <div>
+          <p class="eyebrow">THE SHORTLIST</p>
+          <h2>Bandingkan kandidat</h2>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Smartphone</th>
+                <th>Harga</th>
+                <th>Performa</th>
+                <th>Kamera</th>
+                <th>Baterai</th>
+                <th>Layar</th>
+                <th>TOPSIS</th>
+              </tr>
+            </thead>
+            <tbody id="rankingBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section-title sensitivity-title">
+        <div>
+          <p class="eyebrow">MODEL CHECK</p>
+          <h2>Seberapa stabil hasilnya?</h2>
+          <p>Semua 1.024 kombinasi bobot 1–4 diuji untuk melihat seberapa stabil hasil rekomendasi.</p>
+        </div>
+      </div>
+
+      <div class="sensitivity-grid">
+        <div class="stat-card">
+          <span>Total kombinasi</span>
+          <strong>1.024</strong>
+          <small>4⁵ kemungkinan bobot</small>
+        </div>
+        <div class="stat-card">
+          <span>Juara terbanyak</span>
+          <strong id="sensitivityWinner">—</strong>
+          <small id="sensitivityPct">—</small>
+        </div>
+        <div class="stat-card">
+          <span>Rata-rata rank</span>
+          <strong id="avgRank">—</strong>
+          <small>semakin kecil semakin baik</small>
+        </div>
+      </div>
+
+      <div class="table-card sensitivity-table-card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Smartphone</th>
+                <th>Menjadi #1</th>
+                <th>Persentase</th>
+                <th>Rata-rata rank</th>
+              </tr>
+            </thead>
+            <tbody id="sensitivityBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="method-note">
+        <strong>Catatan metodologi</strong>
+        <p>Frekuensi kemenangan pada analisis sensitivitas adalah hasil pengujian, bukan target yang ditentukan sebelumnya. Sistem tidak mengubah bobot atau data untuk memaksakan smartphone tertentu menjadi pemenang.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>SmartPick © 2026</span>
+      <span>Sistem Rekomendasi Smartphone · Metode TOPSIS</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,42 +1,219 @@
-const phones=[
-["A1","Samsung Galaxy A26 5G",4999000,8,256,771279,50,5000,"Samsung"],
-["A2","Samsung Galaxy A36 5G",5699000,8,256,844447,50,5000,"Samsung"],
-["A3","Samsung Galaxy A37 5G",7299000,8,256,1064079,50,5000,"Samsung"],
-["A4","Samsung Galaxy A56 5G",6699000,8,256,1258240,50,5000,"Samsung"],
-["A5","Redmi Note 14 5G",3199000,8,256,676648,108,5110,"Xiaomi"],
-["A6","Redmi Note 14 Pro 5G",4399000,8,256,855596,200,5110,"Xiaomi"],
-["A7","POCO X7 5G",3799000,8,256,854970,50,5110,"POCO"],
-["A8","POCO X7 Pro 5G",5199000,12,512,1940364,50,6000,"POCO"],
-["A9","POCO F7",5999000,12,512,2288306,50,6500,"POCO"],
-["A10","realme 14 5G",4399000,8,256,980508,50,6000,"realme"],
-["A11","realme 14T 5G",3799000,8,256,569901,50,6000,"realme"],
-["A12","vivo V50 5G",6499000,8,256,1018053,50,6000,"vivo"],
-["A13","OPPO Reno13 F 5G",5599000,8,256,749828,50,5800,"OPPO"],
-["A14","Infinix Note 60",4999000,8,256,977113,50,6500,"Infinix"],
-["A15","Infinix Note 60 Pro",5499000,8,256,1065801,50,6500,"Infinix"]
+const smartphones = [
+{id:"HP001",name:"Infinix Smart 8",brand:"Infinix",price:1199000,performance:325539,camera_score:1,battery:5000,display_score:1},
+{id:"HP002",name:"Redmi 14C",brand:"Redmi",price:1799000,performance:362983,camera_score:1,battery:5160,display_score:1},
+{id:"HP003",name:"POCO C71",brand:"POCO",price:1599000,performance:322517,camera_score:0,battery:5200,display_score:1},
+{id:"HP004",name:"TECNO POVA 7 Neo",brand:"TECNO",price:1977000,performance:561891,camera_score:1,battery:7000,display_score:2},
+{id:"HP005",name:"Infinix Note 40",brand:"Infinix",price:2309000,performance:575446,camera_score:2,battery:5000,display_score:3},
+{id:"HP006",name:"Infinix Hot 50 Pro+",brand:"Infinix",price:2599000,performance:566719,camera_score:1,battery:5000,display_score:2},
+{id:"HP007",name:"Samsung Galaxy A07 5G",brand:"Samsung",price:2799000,performance:528428,camera_score:1,battery:5000,display_score:2},
+{id:"HP008",name:"POCO M7 Pro 5G",brand:"POCO",price:2999000,performance:661238,camera_score:2,battery:5110,display_score:3},
+{id:"HP009",name:"Redmi Note 15",brand:"Redmi",price:2599000,performance:825374,camera_score:1,battery:6000,display_score:3},
+{id:"HP010",name:"TECNO POVA Curve 5G",brand:"TECNO",price:3035000,performance:765777,camera_score:1,battery:5500,display_score:2},
+{id:"HP011",name:"Samsung Galaxy A17 5G",brand:"Samsung",price:3699000,performance:603772,camera_score:2,battery:5000,display_score:2},
+{id:"HP012",name:"iQOO Z11x",brand:"iQOO",price:3699000,performance:983562,camera_score:1,battery:7200,display_score:1},
+{id:"HP013",name:"Redmi Note 14 5G",brand:"Redmi",price:3799000,performance:660807,camera_score:2,battery:5110,display_score:4},
+{id:"HP014",name:"POCO X7",brand:"POCO",price:3799000,performance:803683,camera_score:4,battery:5110,display_score:5},
+{id:"HP015",name:"Samsung Galaxy A26 5G",brand:"Samsung",price:3999000,performance:754064,camera_score:4,battery:5000,display_score:2},
+{id:"HP016",name:"Infinix GT 30 Pro",brand:"Infinix",price:3999000,performance:1591019,camera_score:4,battery:5500,display_score:5},
+{id:"HP017",name:"Redmi Note 14 Pro 5G",brand:"Redmi",price:4399000,performance:804731,camera_score:4,battery:5110,display_score:5},
+{id:"HP018",name:"realme 14 5G",brand:"realme",price:4399000,performance:980508,camera_score:2,battery:6000,display_score:3},
+{id:"HP019",name:"Redmi Note 15 Pro 5G",brand:"Redmi",price:4699000,performance:876387,camera_score:4,battery:6580,display_score:5},
+{id:"HP020",name:"POCO X8 Pro",brand:"POCO",price:4999000,performance:1977887,camera_score:3,battery:6500,display_score:5},
+{id:"HP021",name:"POCO F7",brand:"POCO",price:5999000,performance:2199079,camera_score:3,battery:6500,display_score:5},
+{id:"HP022",name:"Redmi Note 15 Pro+ 5G",brand:"Redmi",price:5999000,performance:975892,camera_score:4,battery:6500,display_score:5},
+{id:"HP023",name:"Infinix GT 50 Pro",brand:"Infinix",price:6499000,performance:1959760,camera_score:4,battery:6500,display_score:5},
+{id:"HP024",name:"Xiaomi 14T",brand:"Xiaomi",price:6499000,performance:1559755,camera_score:5,battery:5000,display_score:5},
+{id:"HP025",name:"Motorola Edge 60 Pro",brand:"Motorola",price:7999000,performance:1537550,camera_score:5,battery:6000,display_score:5},
+{id:"HP026",name:"Samsung Galaxy A57 5G",brand:"Samsung",price:8299000,performance:1359649,camera_score:4,battery:5000,display_score:2},
+{id:"HP027",name:"Xiaomi 17T",brand:"Xiaomi",price:8999000,performance:2026828,camera_score:5,battery:6500,display_score:5},
+{id:"HP028",name:"Xiaomi 14T Pro",brand:"Xiaomi",price:8999000,performance:2129644,camera_score:5,battery:5000,display_score:5},
+{id:"HP029",name:"Samsung Galaxy S25 FE",brand:"Samsung",price:9999000,performance:2000659,camera_score:5,battery:4900,display_score:2},
+{id:"HP030",name:"Samsung Galaxy S24 FE",brand:"Samsung",price:9999000,performance:1849346,camera_score:5,battery:4700,display_score:2}
 ];
-const criteria=[["Harga","Cost"],["RAM","Benefit"],["Storage","Benefit"],["Performa","Benefit"],["Kamera","Benefit"],["Baterai","Benefit"]];
-const defaults=[4,3,3,4,2,4];
-const grid=document.getElementById("criteriaGrid");
-criteria.forEach((c,i)=>{let el=document.createElement("div");el.className="criterion";el.innerHTML=`<div class="criterion-top"><div><div class="criterion-name">${c[0]}</div><div class="criterion-type">${c[1]}</div></div><div class="criterion-value" id="cv${i}">${defaults[i]}</div></div><input class="slider" id="sl${i}" type="range" min="1" max="4" value="${defaults[i]}"><div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span></div>`;grid.appendChild(el);el.querySelector("input").addEventListener("input",()=>{document.getElementById("cv"+i).textContent=el.querySelector("input").value;});});
-function money(n){return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n)}
-function calculate(){
- let raw=[0,1,2,3,4,5].map(i=>+document.getElementById("sl"+i).value),total=raw.reduce((a,b)=>a+b,0),w=raw.map(v=>v/total);
- document.getElementById("weightTotal").textContent="100%";
- let m=phones.map(p=>p.slice(2,8)),den=m[0].map((_,j)=>Math.sqrt(m.reduce((s,r)=>s+r[j]**2,0))),r=m.map(row=>row.map((x,j)=>x/den[j])),y=r.map(row=>row.map((x,j)=>x*w[j]));
- let plus=[],minus=[];
- for(let j=0;j<6;j++){let c=y.map(r=>r[j]);plus[j]=j===0?Math.min(...c):Math.max(...c);minus[j]=j===0?Math.max(...c):Math.min(...c)}
- let out=phones.map((p,i)=>{let dp=Math.sqrt(y[i].reduce((s,x,j)=>s+(x-plus[j])**2,0)),dm=Math.sqrt(y[i].reduce((s,x,j)=>s+(x-minus[j])**2,0));return{p,v:dm/(dm+dp)}}).sort((a,b)=>b.v-a.v);
- renderResults(out);return out;
+
+const criteria = [
+ {key:"price",name:"Harga",type:"cost",hint:"Seberapa penting mendapatkan harga yang lebih murah?"},
+ {key:"performance",name:"Performa",type:"benefit",hint:"Penting untuk gaming, multitasking, dan aplikasi berat."},
+ {key:"camera_score",name:"Kamera",type:"benefit",hint:"Penting untuk foto dan video sehari-hari."},
+ {key:"battery",name:"Baterai",type:"benefit",hint:"Penting untuk pemakaian lama tanpa sering mengisi daya."},
+ {key:"display_score",name:"Layar",type:"benefit",hint:"Kualitas panel, refresh rate, resolusi, dan kecerahan."}
+];
+
+const $ = id => document.getElementById(id);
+const rupiah = n => new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n);
+const number = n => new Intl.NumberFormat("id-ID").format(n);
+
+function renderCriteria(){
+  $("criteriaGrid").innerHTML = criteria.map((c,i)=>`
+    <div class="criteria-card">
+      <label>${c.name}</label>
+      <div class="hint">${c.hint}</div>
+      <select id="w${i}">
+        <option value="1">1 · Tidak penting</option>
+        <option value="2">2 · Kurang penting</option>
+        <option value="3" selected>3 · Penting</option>
+        <option value="4">4 · Sangat penting</option>
+      </select>
+    </div>
+  `).join("");
 }
-function renderResults(out){
- let top=out[0];document.getElementById("winner").innerHTML=`<div><div class="winner-label">🏆 REKOMENDASI UTAMA</div><div class="winner-name">${top.p[1]}</div><div style="color:#718093;font-size:11px;margin-top:4px">${top.p[3]} GB RAM · ${top.p[4]} GB storage · ${money(top.p[2])}</div></div><div class="winner-score"><b>${top.v.toFixed(6)}</b><small>NILAI PREFERENSI (V)</small></div>`;
- document.getElementById("rankingBody").innerHTML=out.map((x,i)=>`<tr><td>${i+1}</td><td><b>${x.p[1]}</b></td><td>${money(x.p[2])}</td><td>${x.p[3]} GB</td><td>${x.p[4]} GB</td><td>${x.p[6].toLocaleString("id-ID")}</td><td class="score">${x.v.toFixed(6)}</td></tr>`).join("");
+
+function weightsFromRaw(raw){
+  const total = raw.reduce((a,b)=>a+b,0);
+  return raw.map(x=>x/total);
 }
-function renderPhones(list=phones){document.getElementById("phoneGrid").innerHTML=list.map(p=>`<article class="phone-item"><div class="phone-icon"><div></div></div><div class="brand-label">${p[8]}</div><h3>${p[1]}</h3><div class="specs"><span>${p[3]} GB RAM</span><span>${p[4]} GB</span><span>${p[7].toLocaleString("id-ID")} mAh</span><span>${p[6]} MP</span></div><div class="price">${money(p[2])}</div></article>`).join("")}
-const brands=[...new Set(phones.map(p=>p[8]))];brands.forEach(b=>{let o=document.createElement("option");o.value=b;o.textContent=b;document.getElementById("brandFilter").appendChild(o)});
-function filter(){let q=document.getElementById("search").value.toLowerCase(),b=document.getElementById("brandFilter").value;renderPhones(phones.filter(p=>(p[1].toLowerCase().includes(q)||p[8].toLowerCase().includes(q))&&(!b||p[8]===b)))}
-document.getElementById("search").addEventListener("input",filter);document.getElementById("brandFilter").addEventListener("change",filter);
-document.getElementById("calculate").addEventListener("click",()=>{calculate();document.getElementById("results").scrollIntoView({behavior:"smooth"});toast("Rekomendasi berhasil dihitung ✦")});
-function toast(t){let e=document.getElementById("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)}
-renderPhones();calculate();
+
+function getWeights(){
+  return weightsFromRaw(criteria.map((_,i)=>Number($("w"+i).value)));
+}
+
+function topsis(candidates, weights){
+  if(candidates.length===1) return [{...candidates[0],score:1}];
+
+  const columns = criteria.map(c=>candidates.map(x=>Number(x[c.key])));
+  const denominators = columns.map(col=>Math.sqrt(col.reduce((sum,x)=>sum+x*x,0)));
+
+  const normalized = candidates.map((_,i)=>
+    criteria.map((_,j)=>columns[j][i]/(denominators[j]||1))
+  );
+
+  const weighted = normalized.map(row=>row.map((v,j)=>v*weights[j]));
+  const idealPlus = [], idealMinus = [];
+
+  criteria.forEach((c,j)=>{
+    const col = weighted.map(row=>row[j]);
+    idealPlus[j] = c.type==="benefit" ? Math.max(...col) : Math.min(...col);
+    idealMinus[j] = c.type==="benefit" ? Math.min(...col) : Math.max(...col);
+  });
+
+  return candidates.map((x,i)=>{
+    let plus=0, minus=0;
+    criteria.forEach((_,j)=>{
+      plus += (weighted[i][j]-idealPlus[j])**2;
+      minus += (weighted[i][j]-idealMinus[j])**2;
+    });
+    const dp=Math.sqrt(plus), dm=Math.sqrt(minus);
+    return {...x,score:dm/(dm+dp||1)};
+  }).sort((a,b)=>b.score-a.score);
+}
+
+function explainWinner(w,weights,candidateCount){
+  const sorted = criteria.map((c,i)=>({name:c.name,weight:weights[i]})).sort((a,b)=>b.weight-a.weight);
+  const a=sorted[0], b=sorted[1];
+  return `Dari ${candidateCount} smartphone yang masuk budget, ${w.name} memperoleh nilai TOPSIS tertinggi (${w.score.toFixed(4)}). Preferensi terbesar kamu adalah ${a.name} (${(a.weight*100).toFixed(1)}%) dan ${b.name} (${(b.weight*100).toFixed(1)}%), sehingga hasil akhir mengikuti kombinasi kebutuhan tersebut.`;
+}
+
+function renderResults(results,weights,budget){
+  const winner=results[0];
+  $("results").classList.remove("hidden");
+  const selectedBrand=$("brandFilter").value;
+  $("activeFilters").innerHTML=`<span class="filter-chip">${selectedBrand==="all"?"Semua merek":selectedBrand}</span><span class="filter-chip">Budget ≤ ${rupiah(budget)}</span><span class="filter-count">${results.length} dari ${smartphones.length} smartphone</span>`;
+  $("winnerName").textContent=winner.name;
+  $("winnerPrice").textContent=rupiah(winner.price);
+  $("winnerScore").textContent=winner.score.toFixed(4);
+  $("candidateCount").textContent=`${results.length} kandidat dalam budget`;
+  $("winnerMeta").innerHTML=`
+    <span class="meta-pill">Performa ${number(winner.performance)}</span>
+    <span class="meta-pill">Kamera ${winner.camera_score}/5</span>
+    <span class="meta-pill">Baterai ${number(winner.battery)} mAh</span>
+    <span class="meta-pill">Layar ${winner.display_score}/5</span>
+  `;
+  $("winnerExplanation").textContent=explainWinner(winner,weights,results.length);
+
+  $("rankingBody").innerHTML=results.map((r,i)=>`
+    <tr class="${i===0?"best":""}">
+      <td>${String(i+1).padStart(2,"0")}</td>
+      <td>${r.name}${i===0?'<span class="top-badge">TOP</span>':""}</td>
+      <td>${rupiah(r.price)}</td>
+      <td>${number(r.performance)}</td>
+      <td>${r.camera_score}/5</td>
+      <td>${number(r.battery)} mAh</td>
+      <td>${r.display_score}/5</td>
+      <td>${r.score.toFixed(4)}</td>
+    </tr>
+  `).join("");
+
+  runSensitivity(results.map(r=>smartphones.find(x=>x.id===r.id)));
+  $("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function runSensitivity(candidates){
+  const counts=Object.fromEntries(candidates.map(x=>[x.id,0]));
+  const rankSums=Object.fromEntries(candidates.map(x=>[x.id,0]));
+  let total=0;
+
+  for(let a=1;a<=4;a++) for(let b=1;b<=4;b++) for(let c=1;c<=4;c++)
+  for(let d=1;d<=4;d++) for(let e=1;e<=4;e++){
+    const weights=weightsFromRaw([a,b,c,d,e]);
+    const ranked=topsis(candidates,weights);
+    ranked.forEach((x,i)=>rankSums[x.id]+=i+1);
+    counts[ranked[0].id]++;
+    total++;
+  }
+
+  const rows=candidates.map(x=>({
+    ...x,
+    wins:counts[x.id],
+    pct:counts[x.id]/total*100,
+    avg:rankSums[x.id]/total
+  })).sort((a,b)=>b.wins-a.wins || a.avg-b.avg);
+
+  const leader=rows[0];
+  $("sensitivityWinner").textContent=leader.name;
+  $("sensitivityPct").textContent=`${leader.pct.toFixed(2)}% menjadi peringkat #1`;
+  $("avgRank").textContent=leader.avg.toFixed(2);
+
+  $("sensitivityBody").innerHTML=rows.map((x,i)=>`
+    <tr class="${i===0?"best":""}">
+      <td>${x.name}</td>
+      <td>${x.wins}/1024</td>
+      <td>${x.pct.toFixed(2)}%</td>
+      <td>${x.avg.toFixed(3)}</td>
+    </tr>
+  `).join("");
+}
+
+function recommend(){
+  const budgetInput=$("budget");
+  const budget=Number(budgetInput.value);
+  if(!budgetInput.value || !Number.isFinite(budget) || budget<1000000){
+    alert("Budget minimum adalah Rp1.000.000.");
+    budgetInput.value=1000000;
+    budgetInput.focus();
+    return;
+  }
+  if(budget>10000000){
+    alert("Budget maksimum adalah Rp10.000.000 sesuai rentang dataset.");
+    budgetInput.value=10000000;
+    budgetInput.focus();
+    return;
+  }
+  const selectedBrand=$("brandFilter").value;
+  const candidates=smartphones.filter(x=>x.price<=budget && (selectedBrand==="all" || x.brand===selectedBrand));
+  if(!candidates.length){
+    alert("Tidak ada smartphone yang sesuai dengan budget tersebut.");
+    return;
+  }
+  const weights=getWeights();
+  const results=topsis(candidates,weights);
+  renderResults(results,weights,budget);
+}
+
+function reset(){
+  $("budget").value=5000000;
+  $("brandFilter").value="all";
+  criteria.forEach((_,i)=>$("w"+i).value=3);
+  $("results").classList.add("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+renderCriteria();
+$("recommendBtn").addEventListener("click",recommend);
+$("resetBtn").addEventListener("click",reset);
+$("changeBtn").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+$("budget").addEventListener("change",()=>{
+  const input=$("budget");
+  if(input.value!=="" && Number(input.value)<1000000) input.value=1000000;
+  if(input.value!=="" && Number(input.value)>10000000) input.value=10000000;
+});
+$("budget").addEventListener("keydown",e=>{if(e.key==="Enter") recommend();});
