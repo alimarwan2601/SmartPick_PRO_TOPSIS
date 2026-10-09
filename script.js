@@ -176,9 +176,9 @@ function runSensitivity(candidates){
 function recommend(){
   const budgetInput=$("budget");
   const budget=Number(budgetInput.value);
-  if(!budgetInput.value || !Number.isFinite(budget) || budget<1000000){
-    alert("Budget minimum adalah Rp1.000.000.");
-    budgetInput.value=1000000;
+  if(!budgetInput.value || !Number.isFinite(budget) || budget<2000000){
+    alert("Budget minimum adalah Rp2.000.000.");
+    budgetInput.value=2000000;
     budgetInput.focus();
     return;
   }
@@ -213,7 +213,7 @@ $("resetBtn").addEventListener("click",reset);
 $("changeBtn").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 $("budget").addEventListener("change",()=>{
   const input=$("budget");
-  if(input.value!=="" && Number(input.value)<1000000) input.value=1000000;
+  if(input.value!=="" && Number(input.value)<2000000) input.value=2000000;
   if(input.value!=="" && Number(input.value)>10000000) input.value=10000000;
 });
 $("budget").addEventListener("keydown",e=>{if(e.key==="Enter") recommend();});

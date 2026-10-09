@@ -32,6 +32,6 @@ Dataset mengikuti dataset SmartPick v1.1 yang digunakan dalam proyek. Skor kamer
 
 ## Batas budget
 
-- Budget minimum: Rp1.000.000
+- Budget minimum: Rp2.000.000
 - Budget maksimum: Rp10.000.000 (rentang dataset saat ini)
 - Validasi ada di input HTML dan JavaScript.
