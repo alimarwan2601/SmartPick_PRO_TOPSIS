@@ -23,7 +23,7 @@
   <main class="wrap">
     <section class="hero">
       <div class="hero-copy">
-        <div class="hero-kicker"><span class="live-dot"></span> SMARTPHONE FINDER <span class="hero-version">v1.2</span></div>
+        <div class="hero-kicker"><span class="live-dot"></span> SMARTPHONE FINDER <span class="hero-version">v1.3</span></div>
         <h1>Find your next<br><em>daily driver.</em></h1>
         <p>Pilihan smartphone yang lebih masuk akal. Atur budget, pilih merek, dan biarkan SmartPick membandingkan spesifikasi berdasarkan kebutuhanmu.</p>
         <a class="hero-link" href="#finder">Mulai cari <span>↘</span></a>
@@ -74,9 +74,9 @@
           <label for="budget">Budget maksimum</label>
         <div class="money-input">
           <span>Rp</span>
-          <input id="budget" type="number" min="2000000" max="10000000" step="100000" value="5000000" required>
+          <input id="budget" type="number" min="1000000" max="10000000" step="100000" value="5000000" required>
         </div>
-          <small>Minimum Rp2.000.000. Kandidat yang diproses harus berada di bawah atau sama dengan budget maksimum.</small>
+          <small>Minimum Rp1.000.000. Kandidat yang diproses harus berada di bawah atau sama dengan budget maksimum.</small>
         </div>
       </div>
 
@@ -104,6 +104,7 @@
           <h3 id="winnerName">—</h3>
           <p class="winner-price" id="winnerPrice">—</p>
           <div class="winner-meta" id="winnerMeta"></div>
+          <button class="btn-ghost spec-winner-btn" id="winnerSpecsBtn" type="button">Lihat detail spesifikasi <span>↗</span></button>
         </div>
         <div class="score-block">
           <span>Nilai TOPSIS</span>
@@ -140,6 +141,7 @@
                 <th>Baterai</th>
                 <th>Layar</th>
                 <th>TOPSIS</th>
+                <th>Detail</th>
               </tr>
             </thead>
             <tbody id="rankingBody"></tbody>
@@ -203,6 +205,27 @@
     </div>
   </footer>
 
+
+  <div class="spec-modal hidden" id="specModal" role="dialog" aria-modal="true" aria-labelledby="specModalTitle">
+    <div class="spec-modal-backdrop" id="specModalBackdrop"></div>
+    <section class="spec-modal-card">
+      <button class="spec-modal-close" id="specModalClose" type="button" aria-label="Tutup detail spesifikasi">×</button>
+      <p class="eyebrow">DEVICE DETAILS · INFORMASI PRODUK</p>
+      <h2 id="specModalTitle">Spesifikasi smartphone</h2>
+      <p class="spec-modal-price" id="specModalPrice">—</p>
+      <div class="spec-detail-grid">
+        <div class="spec-detail-item"><span>RAM fisik</span><strong id="specModalRam">—</strong></div>
+        <div class="spec-detail-item"><span>Penyimpanan internal</span><strong id="specModalStorage">—</strong></div>
+        <div class="spec-detail-item"><span>Chipset / prosesor</span><strong id="specModalChipset">—</strong></div>
+        <div class="spec-detail-item"><span>Baterai</span><strong id="specModalBattery">—</strong></div>
+      </div>
+      <div class="spec-note-box">
+        <strong>Catatan spesifikasi</strong>
+        <p id="specModalNote">—</p>
+      </div>
+      <p class="spec-method-note">RAM, storage, dan chipset hanya ditampilkan sebagai informasi produk. Ketiganya tidak masuk ke perhitungan TOPSIS dan tidak mengubah ranking. Konfigurasi dapat berbeda menurut wilayah dan varian; verifikasi kembali sebelum menjadikan data sebagai referensi final.</p>
+    </section>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
