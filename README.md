@@ -2,16 +2,6 @@
 
 Sistem Rekomendasi Smartphone menggunakan metode TOPSIS.
 
-## Menjalankan di VS Code
-
-1. Ekstrak ZIP ini.
-2. Buka folder `SmartPick` di VS Code.
-3. Buka `index.html`.
-4. Klik kanan → **Open with Live Server** jika extension Live Server sudah terpasang.
-5. Atau buka `index.html` langsung melalui browser.
-
-Tidak membutuhkan database, Node.js, atau Python untuk menjalankan versi ini.
-
 ## Struktur
 
 - `index.html` — struktur halaman
@@ -42,7 +32,7 @@ Dataset mengikuti dataset SmartPick v1.1 yang digunakan dalam proyek. Skor kamer
 
 ## Batas budget
 
-- Budget minimum: Rp1.000.000
+- Budget minimum: Rp2.000.000
 - Budget maksimum: Rp10.000.000 (rentang dataset saat ini)
 - Validasi ada di input HTML dan JavaScript.
 
